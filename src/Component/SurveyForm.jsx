@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Select from 'react-select';
 import { ApiContext } from '../Context/Apicontext';
+import { useNavigate } from 'react-router-dom';
 
 const surveyTopicOption = [{
     label: 'Select a topic',
@@ -126,6 +127,7 @@ const initialState = {
 };
 
 const SurveyForm = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState({});
     const [additionalQuestions, setAdditionalQuestions] = useState([]);
@@ -342,6 +344,7 @@ const SurveyForm = () => {
                     <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
                         {isSubmitting ? 'Submitting...' : 'Submit'}
                     </button>
+                    <button className="btn btn-primary mx-2" onClick={()=> navigate(-1)}>Go Back</button>
                 </form>
 
                 {additionalQuestions.length > 0 && (

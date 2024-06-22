@@ -4,6 +4,7 @@ import { PhoneInput } from 'react-international-phone';
 import { PhoneNumberUtil } from 'google-libphonenumber';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-international-phone/style.css';
+import { useNavigate } from 'react-router-dom';
 
 const phoneUtil = PhoneNumberUtil.getInstance();
 
@@ -84,6 +85,7 @@ const postionOptions = [{
 }];
 
 const JobApplicationForm = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState({});
 
@@ -283,6 +285,7 @@ const JobApplicationForm = () => {
                 </div>
 
                 <button type="submit" className="btn btn-primary">Submit</button>
+                <button className="btn btn-primary mx-2" onClick={()=> navigate(-1)}>Go Back</button>
             </form>
         </div>
     );

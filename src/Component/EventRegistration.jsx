@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useNavigate } from 'react-router-dom';
 
 const validateForm = (formData) => {
     let errors = {};
@@ -25,6 +26,7 @@ const initialState = { name: '', email: '', age: '', hasGuest: false, guestName:
 const EventRegistrationForm = () => {
     const [formData, setFormData] = useState({});
     const [errors, setErrors] = useState({});
+    const navigate = useNavigate();
 
     useEffect(()=>{
         setFormData(initialState);
@@ -132,6 +134,7 @@ const EventRegistrationForm = () => {
                 )}
 
                 <button type="submit" className="btn btn-primary">Submit</button>
+                <button className="btn btn-primary mx-2" onClick={()=> navigate(-1)}>Go Back</button>
             </form>
         </div>
     );
