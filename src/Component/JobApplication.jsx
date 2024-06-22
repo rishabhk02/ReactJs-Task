@@ -142,13 +142,13 @@ const JobApplicationForm = () => {
                     <input
                         type="text"
                         placeholder='Enter Full Name'
-                        className={`form-control ${errors.fullName ? 'is-invalid' : ''}`}
+                        className={`form-control ${errors?.fullName ? 'is-invalid' : ''}`}
                         id="fullName"
                         name="fullName"
-                        value={formData.fullName}
+                        value={formData?.fullName}
                         onChange={handleFieldChange}
                     />
-                    {errors.fullName && <div className="invalid-feedback">{errors.fullName}</div>}
+                    {errors?.fullName && <div className="invalid-feedback">{errors?.fullName}</div>}
                 </div>
 
                 <div className="mb-3">
@@ -156,38 +156,38 @@ const JobApplicationForm = () => {
                     <input
                         type="email"
                         placeholder='Enter Email'
-                        className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+                        className={`form-control ${errors?.email ? 'is-invalid' : ''}`}
                         id="email"
                         name="email"
-                        value={formData.email}
+                        value={formData?.email}
                         onChange={handleFieldChange}
                     />
-                    {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                    {errors?.email && <div className="invalid-feedback">{errors?.email}</div>}
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="phoneNumber" className="form-label">Phone Number</label>
                     <PhoneInput
-                        className={`${errors.phoneNumber ? 'is-invalid' : ''}`}
+                        className={`${errors?.phoneNumber ? 'is-invalid' : ''}`}
                         defaultCountry="in"
-                        value={formData.phoneNumber}
+                        value={formData?.phoneNumber}
                         onChange={(value) => setFormData((prevData)=>({
                             ...prevData,
                             ['phoneNumber']: value
                         }))}
                         inputStyle={{width: '100%'}}
                     />
-                    {errors.phoneNumber && <div className="invalid-feedback">{errors.phoneNumber}</div>}
+                    {errors?.phoneNumber && <div className="invalid-feedback">{errors?.phoneNumber}</div>}
                 </div>
 
                 <div className="mb-3">
                     <label htmlFor="position" className="form-label">Applying for Position</label>
                     <Select
-                        className={`${errors.position ? 'is-invalid' : ''}`}
+                        className={`${errors?.position ? 'is-invalid' : ''}`}
                         id="position"
                         name="position"
                         placeholder='Select Position'
-                        value={formData.position}
+                        value={formData?.position}
                         onChange={(e) => setFormData((prevData) => ({
                             ...prevData,
                             ['position']: e,
@@ -198,42 +198,42 @@ const JobApplicationForm = () => {
                         options={postionOptions}
                     >
                     </Select>
-                    {errors.position && <div className="invalid-feedback">{errors.position}</div>}
+                    {errors?.position && <div className="invalid-feedback">{errors?.position}</div>}
                 </div>
 
-                {['Developer', 'Designer'].includes(formData.position?.value) && (
+                {['Developer', 'Designer'].includes(formData?.position?.value) && (
                     <div className="mb-3">
                         <label htmlFor="relevantExperience" className="form-label">Relevant Experience (years)</label>
                         <input
                             type="number"
                             placeholder='Enter Relevant Experience'
-                            className={`form-control ${errors.relevantExperience ? 'is-invalid' : ''}`}
+                            className={`form-control ${errors?.relevantExperience ? 'is-invalid' : ''}`}
                             id="relevantExperience"
                             name="relevantExperience"
-                            value={formData.relevantExperience}
+                            value={formData?.relevantExperience}
                             onChange={handleFieldChange}
                         />
-                        {errors.relevantExperience && <div className="invalid-feedback">{errors.relevantExperience}</div>}
+                        {errors?.relevantExperience && <div className="invalid-feedback">{errors?.relevantExperience}</div>}
                     </div>
                 )}
 
-                {formData.position?.value === 'Designer' && (
+                {formData?.position?.value === 'Designer' && (
                     <div className="mb-3">
                         <label htmlFor="portfolioURL" className="form-label">Portfolio URL</label>
                         <input
                             type="url"
                             placeholder='Enter Portfolio Url'
-                            className={`form-control ${errors.portfolioURL ? 'is-invalid' : ''}`}
+                            className={`form-control ${errors?.portfolioURL ? 'is-invalid' : ''}`}
                             id="portfolioURL"
                             name="portfolioURL"
-                            value={formData.portfolioURL}
+                            value={formData?.portfolioURL}
                             onChange={handleFieldChange}
                         />
-                        {errors.portfolioURL && <div className="invalid-feedback">{errors.portfolioURL}</div>}
+                        {errors?.portfolioURL && <div className="invalid-feedback">{errors?.portfolioURL}</div>}
                     </div>
                 )}
 
-                {formData.position?.value === 'Manager' && (
+                {formData?.position?.value === 'Manager' && (
                     <div className="mb-3">
                         <label htmlFor="managementExperience" className="form-label">Management Experience</label>
                         <textarea
@@ -241,7 +241,7 @@ const JobApplicationForm = () => {
                             placeholder='Enter Management Experience'
                             id="managementExperience"
                             name="managementExperience"
-                            value={formData.managementExperience}
+                            value={formData?.managementExperience}
                             onChange={handleFieldChange}
                         />
                         {errors.managementExperience && <div className="invalid-feedback">{errors.managementExperience}</div>}
@@ -250,7 +250,7 @@ const JobApplicationForm = () => {
 
                 <div className="mb-3">
                     <label className="form-label">Additional Skills</label>
-                    {Object.keys(formData.additionalSkills).map((skill) => (
+                    {formData?.additionalSkills && Object.keys(formData.additionalSkills).map((skill) => (
                         <div className="form-check" key={skill}>
                             <input
                                 className="form-check-input"

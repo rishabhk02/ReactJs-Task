@@ -66,13 +66,13 @@ const EventRegistrationForm = () => {
                     <input
                         type="text"
                         placeholder='Enter your name'
-                        className={`form-control ${errors.name ? 'is-invalid' : ''}`}
+                        className={`form-control ${errors?.name ? 'is-invalid' : ''}`}
                         id="name"
                         name="name"
-                        value={formData.name}
+                        value={formData?.name}
                         onChange={handleFieldChange}
                     />
-                    {errors.name && <div className="invalid-feedback">{errors.name}</div>}
+                    {errors?.name && <div className="invalid-feedback">{errors?.name}</div>}
                 </div>
 
                 <div className="mb-3">
@@ -80,13 +80,13 @@ const EventRegistrationForm = () => {
                     <input
                         type="email"
                         placeholder='Enter your email'
-                        className={`form-control ${errors.email ? 'is-invalid' : ''}`}
+                        className={`form-control ${errors?.email ? 'is-invalid' : ''}`}
                         id="email"
                         name="email"
-                        value={formData.email}
+                        value={formData?.email}
                         onChange={handleFieldChange}
                     />
-                    {errors.email && <div className="invalid-feedback">{errors.email}</div>}
+                    {errors?.email && <div className="invalid-feedback">{errors?.email}</div>}
                 </div>
 
                 <div className="mb-3">
@@ -94,13 +94,13 @@ const EventRegistrationForm = () => {
                     <input
                         type="number"
                         placeholder='Enter your age'
-                        className={`form-control ${errors.age ? 'is-invalid' : ''}`}
+                        className={`form-control ${errors?.age ? 'is-invalid' : ''}`}
                         id="age"
                         name="age"
-                        value={formData.age}
+                        value={formData?.age}
                         onChange={handleFieldChange}
                     />
-                    {errors.age && <div className="invalid-feedback">{errors.age}</div>}
+                    {errors?.age && <div className="invalid-feedback">{errors?.age}</div>}
                 </div>
 
                 <div className="mb-3 form-check">
@@ -109,25 +109,25 @@ const EventRegistrationForm = () => {
                         className="form-check-input"
                         id="hasGuest"
                         name="hasGuest"
-                        checked={formData.hasGuest}
+                        checked={formData?.hasGuest}
                         onChange={handleFieldChange}
                     />
                     <label className="form-check-label" htmlFor="hasGuest">Are you attending with a guest?</label>
                 </div>
 
-                {formData.hasGuest && (
+                {formData?.hasGuest && (
                     <div className="mb-3">
                         <label htmlFor="guestName" className="form-label">Guest Name</label>
                         <input
                             type="text"
                             placeholder='Enter guest name'
-                            className={`form-control ${errors.guestName ? 'is-invalid' : ''}`}
+                            className={`form-control ${errors?.guestName ? 'is-invalid' : ''}`}
                             id="guestName"
                             name="guestName"
-                            value={formData.guestName}
+                            value={formData?.guestName}
                             onChange={handleFieldChange}
                         />
-                        {errors.guestName && <div className="invalid-feedback">{errors.guestName}</div>}
+                        {errors?.guestName && <div className="invalid-feedback">{errors?.guestName}</div>}
                     </div>
                 )}
 
